@@ -1,0 +1,20 @@
+{
+  "name": "send-message-iv2",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon ./bin/www",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cookie-parser": "^1.4.4",
+    "express": "^4.17.1",
+    "http-errors": "^1.7.2",
+    "mongoose": "^5.6.0",
+    "morgan": "^1.9.1"
+  }
+}
