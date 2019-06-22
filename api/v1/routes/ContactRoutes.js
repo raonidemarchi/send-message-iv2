@@ -5,16 +5,14 @@ const ContactModel = require('../models/ContactModel')();
  * Inserir novo contato
  */
 router.post('', (req, res) => {
-	ContactModel.findOne({ giveAwayNumber: { $ne: null }}, ['giveAwayNumber'], { sort: { giveAwayNumber: -1 } }, (err, lastRow) => {
-		const giveAwayNumber = lastRow ? lastRow.giveAwayNumber : null;
+	ContactModel.findOne({ giveawayNumber: { $ne: null }}, ['giveawayNumber'], { sort: { giveawayNumber: -1 } }, (err, lastRow) => {
+		const giveawayNumber = lastRow ? lastRow.giveawayNumber : null;
 
 		if (req.body.givewayParticipant) {
-			req.body.giveAwayNumber = giveAwayNumber ? giveAwayNumber + 1 : 1;
-		}
-
-		ContactModel.create(req.body, (err, data) => {
-			res.json(data);
-		});
+			req.body.giveawayNumber = giveawayNumber ? giveawayNumber + 1 : 1;
+    }
+    
+		ContactModel.create(req.body, (err, data) => res.json(err || data));
 	});
 });
 
@@ -22,9 +20,7 @@ router.post('', (req, res) => {
  * Listar todos os contatos
  */
 router.get('', (req, res) => {
-	ContactModel.find({}, (err, data) => {
-		res.json(data);
-	});
+	ContactModel.find({}, (err, data) => res.json(err || data));
 });
 
 module.exports = router;
