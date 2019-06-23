@@ -3,12 +3,33 @@ function ContactModel() {
 	const Schema = mongoose.Schema;
 
 	const _schema = {
-		name: { type: String, required: true },
-		phone: { type: String, required: true },
-		company: { type: String, required: true },
-		givewayParticipant: { type: Boolean, required: true },
-    giveawayNumber: { type: Number, required: false, default: null },
-    createdDate: { type: Number, required: false, default: new Date().getTime() },
+		name: {
+      type: String,
+      required: true
+    },
+		phone: {
+      type: String,
+      required: true
+    },
+		company: {
+      type: String,
+      required: true
+    },
+		givewayParticipant: {
+      type: Boolean,
+      required: true
+    },
+    giveawayNumber: {
+      type: Number,
+      required: false,
+      default: null
+    },
+    createdDate: {
+      type: Date,
+      required: false,
+      select: false,
+      default: Date.now
+    },
 	};
 
 	const newSchema = new Schema(_schema, { versionKey: false });

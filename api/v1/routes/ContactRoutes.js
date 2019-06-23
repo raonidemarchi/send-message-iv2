@@ -20,7 +20,9 @@ router.post('', (req, res) => {
  * Listar todos os contatos
  */
 router.get('', (req, res) => {
-	ContactModel.find({}, (err, data) => res.json(err || data));
+	ContactModel.find({}, null, { sort: { createdDate: -1 } }, (err, data) => (
+    res.json(err || data))
+  )
 });
 
 module.exports = router;
