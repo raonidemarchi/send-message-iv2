@@ -6,7 +6,7 @@ const logger = require('morgan');
 const mongoose = require('mongoose');
 
 // cria um objeto de conexões com o banco
-process.connection = mongoose.createConnection('mongodb://localhost/send-message-iv2',{
+process.connection = mongoose.createConnection('mongodb+srv://raoni:sda3211sad@cluster0-cvpz9.mongodb.net/send-message-iv2?retryWrites=true&w=majority',{
 	useNewUrlParser: true
 });
 
