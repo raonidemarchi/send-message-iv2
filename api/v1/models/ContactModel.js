@@ -24,6 +24,11 @@ function ContactModel() {
       required: false,
       default: null
     },
+    observation: {
+      type: String,
+      required: false,
+      default: null
+    },
     createdDate: {
       type: Date,
       required: false,
