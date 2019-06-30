@@ -4,9 +4,10 @@ const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const mongoose = require('mongoose');
+const databaseUrl = process.env.DATABASE_URL || 'mongodb://localhost:27017/send-message-iv2';
 
 // cria um objeto de conexões com o banco
-process.connection = mongoose.createConnection('mongodb+srv://raoni:sda3211sad@cluster0-cvpz9.mongodb.net/send-message-iv2?retryWrites=true&w=majority',{
+process.connection = mongoose.createConnection(databaseUrl, {
 	useNewUrlParser: true
 });
 
@@ -16,11 +17,11 @@ const contactRouter = require('./api/v1/routes/ContactRoutes');
 
 // Add headers
 app.use(function (req, res, next) {
-    res.setHeader('Access-Control-Allow-Origin', '*');
-    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
-    res.setHeader('Access-Control-Allow-Headers', '*');
-    res.setHeader('Access-Control-Allow-Credentials', true);
-    next();
+	res.setHeader('Access-Control-Allow-Origin', '*');
+	res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
+	res.setHeader('Access-Control-Allow-Headers', '*');
+	res.setHeader('Access-Control-Allow-Credentials', true);
+	next();
 });
 
 app.use(logger('dev'));
