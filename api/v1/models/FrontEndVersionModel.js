@@ -4,7 +4,7 @@ function FrontEndVersionModel() {
 
 	const _schema = {
 		version: {
-      type: Number,
+      type: String,
       required: true
     },
 	};
