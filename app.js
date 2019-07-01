@@ -14,6 +14,7 @@ process.connection = mongoose.createConnection(databaseUrl, {
 const app = express();
 
 const contactRouter = require('./api/v1/routes/ContactRoutes');
+const frontEndVersionRouter = require('./api/v1/routes/FrontEndVersionRoutes');
 
 // Add headers
 app.use(function (req, res, next) {
@@ -31,6 +32,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/api/v1/contact', contactRouter);
+app.use('/api/v1/frontEndVersion', frontEndVersionRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
